@@ -1,14 +1,47 @@
-<body>
-<a href="/">Inicio</a>
-<a href="/about/">Sobre mi</a>
-<a href="/blog/">Blog</a>
+---
+const pageTitle= "Sobre mi";
 
-    <h1>Mi Sitio Astro</h1>
-    <h1>Sobre mi</h1>
+const identity = {
+    firstName: "Eliu",
+    country: "México",
+    occupation: "Ingeniero",
+    hobbies: ["edición de videos", "Guitarrista", "Escuchar música"],
+};
 
-    <h2>... ¡Y mi nuevo sitio Astro!</h2>
+const skills = ["html", "CSS", "Javascript", "Adobe suite", "Guitarra"];
 
-    <p>Estoy trabajando en el tutorial introductorio de Astro. Esta es la segunda página de mi sitio web, ¡y es la primera que he construido yo mismo! </p>
+const happy = true;
+const finished = false;
+const goal = 3; 
+---
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{pageTitle}</title>
+  </head>
+  <body>
+    <a href="/">Inicio</a>
+    <a href="/about/">Sobre mi</a>
+    <a href="/blog/">Blog</a>
+    <h1>{pageTitle}</h1>
+    <h2>... ¡y mi nuevo sitio Astro!</h2>
+
+    <p>Estoy trabajando en el tutorial introductorio de Astro. Esta es la segunda página de mi sitio web, ¡y es la primera que he construido yo mismo!</p>
 
     <p>Este sitio se irá actualizando a medida que vaya completando más partes del tutorial, ¡así que no dejes de visitarlo para ver cómo va mi viaje!</p>
-</body>
+
+    <p>Aqui muestro algunos datos sobre mi</p>
+    <ul>
+        <li>Me llamo {identity.firstName}.</li>
+        <li>Vivo en {identity.country} y trabajo como {identity.occupation}.</li>
+        {identity.hobbies.length >= 2 &&
+            <li>Dos de mis aficiones son: {identity.hobbies[0]} y {identity.hobbies[1]}</li>
+        }
+    </ul>
+    <p>Mis hablididades son:</p>
+    <ul>
+        {skills.map((skill) => <li>{skill}</li>)}
+    </ul>
+  </body>
+</html>
